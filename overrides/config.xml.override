@@ -5,7 +5,7 @@
   <installStateName>RESTART</installStateName>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
-  <useSecurity>false</useSecurity
+  <useSecurity>false</useSecurity>
   <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
     <denyAnonymousReadAccess>false</denyAnonymousReadAccess>
   </authorizationStrategy>
@@ -105,12 +105,12 @@
           <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
-      <serverUrl>https://9D17F948A49B5DBDADA3A610F30241D6.yl4.us-west-2.eks.amazonaws.com</serverUrl>
+      <serverUrl>${MASTER_URL}</serverUrl>
       <skipTlsVerify>false</skipTlsVerify>
       <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <namespace>jenkins</namespace>
-      <jenkinsUrl>http://192.168.167.188:8080</jenkinsUrl>
+      <jenkinsUrl>${MY_POD_IP}:8080</jenkinsUrl>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
       <connectTimeout>0</connectTimeout>
