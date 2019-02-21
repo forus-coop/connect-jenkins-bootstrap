@@ -1,4 +1,4 @@
-branch-api:2.0.14
+branch-api:2.0.18
 git:latest
 workflow-aggregator:latest
 kubernetes:latest
