@@ -1,1 +1,11 @@
+folders:latest
+git:latest
+github:latest
+git-parameter:latest
+job-dsl:latest
+kubernetes:latest
+kubernetes-pipeline-steps:latest
+matrix-auth:latest
+rake:latest
+slack:latest
 workflow-aggregator:latest
