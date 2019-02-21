@@ -1,9 +1,12 @@
+build-name-setter
 git:latest
 github:latest
 git-parameter:latest
 job-dsl:latest
 kubernetes:latest
 kubernetes-pipeline-steps:latest
+docker-build-step:latest
+docker-plugin:latest
 matrix-auth:latest
 rake:latest
 slack:latest
