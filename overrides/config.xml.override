@@ -60,10 +60,10 @@
               <command></command>
               <args>${computer.jnlpmac} ${computer.name} </args>
               <ttyEnabled>true</ttyEnabled>
-              <resourceRequestCpu>"1000m"</resourceRequestCpu>
-              <resourceRequestMemory>"1024Mi"</resourceRequestMemory>
-              <resourceLimitCpu>"2000m"</resourceLimitCpu>
-              <resourceLimitMemory>"2048Mi"</resourceLimitMemory>
+              <resourceRequestCpu>1000m</resourceRequestCpu>
+              <resourceRequestMemory>1024Mi</resourceRequestMemory>
+              <resourceLimitCpu>2000m</resourceLimitCpu>
+              <resourceLimitMemory>2048Mi</resourceLimitMemory>
               <envVars/>
               <ports/>
               <livenessProbe>
@@ -84,10 +84,10 @@
               <command></command>
               <args></args>
               <ttyEnabled>true</ttyEnabled>
-              <resourceRequestCpu>"1000m"</resourceRequestCpu>
-              <resourceRequestMemory>"1024Mi"</resourceRequestMemory>
-              <resourceLimitCpu>"2000m"</resourceLimitCpu>
-              <resourceLimitMemory>"2048Mi"</resourceLimitMemory>
+              <resourceRequestCpu>1000m</resourceRequestCpu>
+              <resourceRequestMemory>1024Mi</resourceRequestMemory>
+              <resourceLimitCpu>2000m</resourceLimitCpu>
+              <resourceLimitMemory>2048Mi</resourceLimitMemory>
               <envVars/>
               <ports/>
               <livenessProbe>
