@@ -1,7 +1,8 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors/>
-  <version>2.60.3</version>
+  <version>2.150.2</version>
+  <installStateName>RESTART</installStateName>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -16,27 +17,29 @@
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
   <jdks/>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.0">
+    <org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud plugin="kubernetes@1.14.5">
       <name>kubernetes</name>
       <defaultsProviderTemplate></defaultsProviderTemplate>
       <templates>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
           <inheritFrom></inheritFrom>
-          <name>jnlp</name>
+          <name>jenkins-slave</name>
           <namespace>jenkins</namespace>
           <privileged>false</privileged>
+          <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
           <alwaysPullImage>false</alwaysPullImage>
           <instanceCap>2147483647</instanceCap>
           <slaveConnectTimeout>100</slaveConnectTimeout>
           <idleMinutes>0</idleMinutes>
           <activeDeadlineSeconds>0</activeDeadlineSeconds>
-          <label>k8s-dind-worker</label>
+          <label>jenkins-slave</label>
           <nodeSelector></nodeSelector>
-          <nodeUsageMode>EXCLUSIVE</nodeUsageMode>
+          <nodeUsageMode>NORMAL</nodeUsageMode>
           <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
           <workspaceVolume class="org.csanchez.jenkins.plugins.kubernetes.volumes.workspace.EmptyDirWorkspaceVolume">
             <memory>false</memory>
@@ -49,8 +52,8 @@
           </volumes>
           <containers>
             <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
-              <name>jnlp</name>
-              <image>ikhripunov/connect-jenkins-slave</image>
+              <name>jenkins-slave</name>
+              <image>jenkinsci/jnlp-slave</image>
               <privileged>false</privileged>
               <alwaysPullImage>true</alwaysPullImage>
               <workingDir>/home/jenkins</workingDir>
@@ -99,18 +102,26 @@
           </containers>
           <envVars/>
           <annotations/>
+          <nodeProperties/>
+          <yaml></yaml>
           <imagePullSecrets/>
+          <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
       </templates>
-      <serverUrl>${MASTER_URL}</serverUrl>
+      <serverUrl>https://9D17F948A49B5DBDADA3A610F30241D6.yl4.us-west-2.eks.amazonaws.com</serverUrl>
       <skipTlsVerify>false</skipTlsVerify>
+      <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
+      <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
       <namespace>jenkins</namespace>
-      <jenkinsUrl>http://${MY_POD_IP}:8080</jenkinsUrl>
+      <jenkinsUrl>http://jenkins-internal:8080</jenkinsUrl>
       <containerCap>10</containerCap>
       <retentionTimeout>5</retentionTimeout>
       <connectTimeout>0</connectTimeout>
       <readTimeout>0</readTimeout>
+      <usageRestricted>false</usageRestricted>
       <maxRequestsPerHost>32</maxRequestsPerHost>
+      <waitForPodSec>600</waitForPodSec>
+      <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Never"/>
     </org.csanchez.jenkins.plugins.kubernetes.KubernetesCloud>
   </clouds>
   <quietPeriod>5</quietPeriod>

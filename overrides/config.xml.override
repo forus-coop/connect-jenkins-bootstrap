@@ -28,7 +28,7 @@
       <templates>
         <org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
           <inheritFrom></inheritFrom>
-          <name>jnlp</name>
+          <name>jenkins-slave</name>
           <namespace>jenkins</namespace>
           <privileged>false</privileged>
           <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
@@ -37,9 +37,9 @@
           <slaveConnectTimeout>100</slaveConnectTimeout>
           <idleMinutes>0</idleMinutes>
           <activeDeadlineSeconds>0</activeDeadlineSeconds>
-          <label>k8s-dind-worker</label>
+          <label>jenkins-slave</label>
           <nodeSelector></nodeSelector>
-          <nodeUsageMode>EXCLUSIVE</nodeUsageMode>
+          <nodeUsageMode>NORMAL</nodeUsageMode>
           <customWorkspaceVolumeEnabled>false</customWorkspaceVolumeEnabled>
           <workspaceVolume class="org.csanchez.jenkins.plugins.kubernetes.volumes.workspace.EmptyDirWorkspaceVolume">
             <memory>false</memory>
@@ -52,8 +52,8 @@
           </volumes>
           <containers>
             <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
-              <name>jnlp</name>
-              <image>ikhripunov/connect-jenkins-slave</image>
+              <name>jenkins-slave</name>
+              <image>jenkinsci/jnlp-slave</image>
               <privileged>false</privileged>
               <alwaysPullImage>true</alwaysPullImage>
               <workingDir>/home/jenkins</workingDir>
@@ -102,6 +102,8 @@
           </containers>
           <envVars/>
           <annotations/>
+          <nodeProperties/>
+          <yaml></yaml>
           <imagePullSecrets/>
           <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>

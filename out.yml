@@ -1,0 +1,116 @@
+Name:               jenkins-slave-4j8zt
+Namespace:          jenkins
+Priority:           0
+PriorityClassName:  <none>
+Node:               ip-192-168-181-108.us-west-2.compute.internal/192.168.181.108
+Start Time:         Thu, 21 Feb 2019 14:48:34 -0800
+Labels:             jenkins=slave
+                    jenkins/jenkins-slave=true
+Annotations:        <none>
+Status:             Running
+IP:                 192.168.167.188
+Containers:
+  dind-daemon:
+    Container ID:   docker://f3c0affa87dd7e2351b14870be3c5832823748f535da9b3799644d87c39d1066
+    Image:          docker:dind
+    Image ID:       docker-pullable://docker@sha256:54cebe5015fbe725c29c203214120e8936f65fda5311c6f5e7c2e5037c0939a0
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 21 Feb 2019 14:48:35 -0800
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      JENKINS_SECRET:      35d15e5f5ebb8e7a6535b07d05b38a50695819b8c062a83e93f7d62b849823a8
+      JENKINS_AGENT_NAME:  jenkins-slave-4j8zt
+      JENKINS_NAME:        jenkins-slave-4j8zt
+      JENKINS_URL:         192.168.167.32:8080/
+      HOME:                /home/jenkins
+    Mounts:
+      /home/jenkins from workspace-volume (rw)
+      /var/lib/docker from volume-0 (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-krn8j (ro)
+  jenkins-slave:
+    Container ID:  docker://c87d89b6b5577247d8aa12ede8012167f6f2ad787fae086d0f1c937d365a14f5
+    Image:         jenkinsci/jnlp-slave
+    Image ID:      docker-pullable://jenkinsci/jnlp-slave@sha256:de55f44e32281b9ecc83da8efc42f54faecd01a635502e738cb4e3c7e0fbf2d2
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      35d15e5f5ebb8e7a6535b07d05b38a50695819b8c062a83e93f7d62b849823a8
+      jenkins-slave-4j8zt
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 21 Feb 2019 14:48:36 -0800
+      Finished:     Thu, 21 Feb 2019 14:48:37 -0800
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      JENKINS_SECRET:      35d15e5f5ebb8e7a6535b07d05b38a50695819b8c062a83e93f7d62b849823a8
+      JENKINS_AGENT_NAME:  jenkins-slave-4j8zt
+      JENKINS_NAME:        jenkins-slave-4j8zt
+      JENKINS_URL:         192.168.167.32:8080/
+      HOME:                /home/jenkins
+    Mounts:
+      /home/jenkins from workspace-volume (rw)
+      /var/lib/docker from volume-0 (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-krn8j (ro)
+  jnlp:
+    Container ID:   docker://96b803ef4c1453242e1263a0fed97a05eaa005e455b73107465205a0266cf31c
+    Image:          jenkins/jnlp-slave:alpine
+    Image ID:       docker-pullable://jenkins/jnlp-slave@sha256:8e330d8bc461440c797d543b9872e54b328da3ef3b052180bb5aed33204d4384
+    Port:           <none>
+    Host Port:      <none>
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 21 Feb 2019 14:48:36 -0800
+      Finished:     Thu, 21 Feb 2019 14:48:37 -0800
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      JENKINS_SECRET:      35d15e5f5ebb8e7a6535b07d05b38a50695819b8c062a83e93f7d62b849823a8
+      JENKINS_AGENT_NAME:  jenkins-slave-4j8zt
+      JENKINS_NAME:        jenkins-slave-4j8zt
+      JENKINS_URL:         192.168.167.32:8080/
+      HOME:                /home/jenkins
+    Mounts:
+      /home/jenkins from workspace-volume (rw)
+      /var/lib/docker from volume-0 (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-krn8j (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  volume-0:
+    Type:    EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:  
+  workspace-volume:
+    Type:    EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:  
+  default-token-krn8j:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-krn8j
+    Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+  Type    Reason     Age   From                                                    Message
+  ----    ------     ----  ----                                                    -------
+  Normal  Scheduled  3s    default-scheduler                                       Successfully assigned jenkins/jenkins-slave-4j8zt to ip-192-168-181-108.us-west-2.compute.internal
+  Normal  Pulled     3s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Container image "docker:dind" already present on machine
+  Normal  Created    3s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Created container
+  Normal  Started    2s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Started container
+  Normal  Pulling    2s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  pulling image "jenkinsci/jnlp-slave"
+  Normal  Pulled     1s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Successfully pulled image "jenkinsci/jnlp-slave"
+  Normal  Created    1s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Created container
+  Normal  Started    1s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Started container
+  Normal  Pulled     1s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Container image "jenkins/jnlp-slave:alpine" already present on machine
+  Normal  Created    1s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Created container
+  Normal  Started    1s    kubelet, ip-192-168-181-108.us-west-2.compute.internal  Started container

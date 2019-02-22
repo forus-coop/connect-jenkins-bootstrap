@@ -1,0 +1,34 @@
+--- overrides/config.xml.override	2019-02-21 17:17:02.000000000 -0800
++++ overrides/config.xml.override.bak	2019-02-21 17:17:46.000000000 -0800
+@@ -102,18 +102,18 @@
+           </containers>
+           <envVars/>
+           <annotations/>
++          <imagePullSecrets/>
+           <nodeProperties/>
+           <yaml></yaml>
+-          <imagePullSecrets/>
+           <podRetention class="org.csanchez.jenkins.plugins.kubernetes.pod.retention.Default"/>
+         </org.csanchez.jenkins.plugins.kubernetes.PodTemplate>
+       </templates>
+-      <serverUrl>${MASTER_URL}</serverUrl>
++      <serverUrl>https://9D17F948A49B5DBDADA3A610F30241D6.yl4.us-west-2.eks.amazonaws.com</serverUrl>
+       <skipTlsVerify>false</skipTlsVerify>
+       <addMasterProxyEnvVars>false</addMasterProxyEnvVars>
+       <capOnlyOnAlivePods>false</capOnlyOnAlivePods>
+       <namespace>jenkins</namespace>
+-      <jenkinsUrl>${MY_POD_IP}:8080</jenkinsUrl>
++      <jenkinsUrl>http://jenkins-internal:8080</jenkinsUrl>
+       <containerCap>10</containerCap>
+       <retentionTimeout>5</retentionTimeout>
+       <connectTimeout>0</connectTimeout>
+@@ -138,9 +138,6 @@
+   <primaryView>all</primaryView>
+   <slaveAgentPort>50000</slaveAgentPort>
+   <label></label>
+-  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+-    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+-  </crumbIssuer>
+   <nodeProperties/>
+   <globalNodeProperties>
+     <hudson.slaves.EnvironmentVariablesNodeProperty>
